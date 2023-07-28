@@ -1,10 +1,8 @@
 .calculatorBody {
     border: 2px solid black;
-    width: 350px;
+    width: 400px;
     height: 300px;
-
     padding: 10px;
-
     display: flex;
     flex-wrap: wrap; /* Добавлено свойство flex-wrap */
     flex-direction: row;
@@ -12,16 +10,24 @@
     background-color: #5e2c00;
 }
 
-.button {
+.button{
+    display: flex;
+    flex-wrap: wrap; /* Добавлено свойство flex-wrap */
+    flex-direction: row;
+    justify-content: space-evenly; /* Чтобы кнопки распределялись равномерно по контейнеру */
+}
+
+.button button  {
     border: 1px solid black;
-    width: 70px; /* Ширина кнопки */
-    height: 30px;
+    width: 90px; /* Ширина кнопки */
+    height: 35px;
     margin-bottom: 5px; /* Небольшой отступ между кнопками */
     background-color: #da954d;
     color: white;
 
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .wrapper{
@@ -34,8 +40,21 @@
 
 .display{
     border: 2px solid black;
-    width: 350px;
+    width: 400px;
     height: 60px;
     padding: 10px;
     background-color: #374949;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.placeForResult{
+
+    border: 1px solid red;
+
+}
+
+.placeForInput{
+    border: 1px solid #0b3f14;
 }

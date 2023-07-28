@@ -1,43 +1,65 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import style from "./Calculator.module.css"
 import {Button} from "./Button";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store/store";
-import {setValueAC, stateType} from "../store/CalculatorReducer";
+import {stateType} from "../store/CalculatorReducer";
+import {clearResultAC, countResultAC, removeLastElementAC, setValueAC} from "../store/functionsActionCreater";
+
 
 
 export const Calculator = () => {
         const inputNumberinDisplay = useSelector<AppRootStateType, stateType>(state => state.calculator)
         let outputNumbersInDisplay = inputNumberinDisplay.value
+        let outputResult = inputNumberinDisplay.result
         let dispatch = useDispatch()
 
-        const callBack = ()=> {
-                dispatch(setValueAC(7))
+
+        const setCharacter = useCallback(
+            (value: string) => {
+                    dispatch(setValueAC(value));
+            },
+            [dispatch]
+        );
+        const getResult = useCallback (()=> {
+                dispatch(countResultAC())
+        }, [dispatch])
+
+        const clearResult = useCallback( () => {
+            dispatch(clearResultAC())
+        }, [dispatch])
+
+        const removeLastElement = ()=> {
+            dispatch(removeLastElementAC())
         }
 
-    return (
+        return (
         <div className={style.wrapper}>
-            <div className={style.display}>{outputNumbersInDisplay}</div>
+            <div className={style.display}>
+                <div className={style.placeForInput}>{outputNumbersInDisplay}</div>
+                <div className={style.placeForResult}>{outputResult}</div>
+            </div>
             <div className={style.calculatorBody}>
-                    <Button callback={callBack} value={7}/>
-            <div className={`${style.number_7}  ${style.button}`}>7</div>
-            <div className={`${style.number_8}  ${style.button}`}>8</div>
-            <div className={`${style.number_9}  ${style.button}`}>9</div>
-            <div className={`${style.divide}    ${style.button}`}>/</div>
-            <div className={`${style.number_4}  ${style.button}`}>4</div>
-            <div className={`${style.number_5}  ${style.button}`}>5</div>
-            <div className={`${style.number_6}  ${style.button}`}>6</div>
-            <div className={`${style.multiply}  ${style.button}`}>*</div>
-            <div className={`${style.number_1}  ${style.button}`}>1</div>
-            <div className={`${style.number_2}  ${style.button}`}>2</div>
-            <div className={`${style.number_3}  ${style.button}`}>3</div>
-            <div className={`${style.subtract}  ${style.button}`}>-</div>
-            <div className={`${style.number_0}  ${style.button}`}>0</div>
-            <div className={`${style.dort}      ${style.button}`}>.</div>
-            <div className={`${style.equal}     ${style.button}`}>=</div>
-            <div className={`${style.plus}      ${style.button}`}>+</div>
-            <div className={`${style.clear}     ${style.button}`}>clear</div>
-
+            <div className={`${style.button}`}>
+                <Button callback={()=>setCharacter('7')}>7</Button>
+                <Button callback={()=>setCharacter('8')}>8</Button>
+                <Button callback={()=>setCharacter('9')}>9</Button>
+                <Button callback={()=>setCharacter('/')}>/</Button>
+                <Button callback={()=>setCharacter('4')}>4</Button>
+                <Button callback={()=>setCharacter('5')}>5</Button>
+                <Button callback={()=>setCharacter('6')}>6</Button>
+                <Button callback={()=>setCharacter('*')}>*</Button>
+                <Button callback={()=>setCharacter('1')}>1</Button>
+                <Button callback={()=>setCharacter('2')}>2</Button>
+                <Button callback={()=>setCharacter('3')}>3</Button>
+                <Button callback={()=>setCharacter('-')}>-</Button>
+                <Button callback={()=>setCharacter('0')}>0</Button>
+                <Button callback={()=>setCharacter('.')}>.</Button>
+                <Button callback={()=>setCharacter('+')}>+</Button>
+                <Button callback={getResult}>=</Button>
+                <Button callback={clearResult}>С</Button>
+                <Button callback={removeLastElement}> --c </Button>
+            </div>
         </div>
         </div>
     );

@@ -1,20 +1,16 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
-export type ButtonProps = {
-    children?: React.ReactNode
-    callback: (value: number | string)=> void
-    value: number | string
+type TypeButtonProps = {
+    callback: ()=> void
+    children: ReactNode
 }
 
 
-
-
-export const Button = ({children, ...atributes}: ButtonProps)=> {
+export const Button = ({callback,children,...atributes}: TypeButtonProps) => {
     return (
         <div>
-            <button {...atributes}>
-                {children}
-            </button>
+         <button onClick={callback}>{children}</button>
         </div>
-    )
-}
+    );
+};
+
