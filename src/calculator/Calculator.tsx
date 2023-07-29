@@ -4,7 +4,13 @@ import {Button} from "./Button";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store/store";
 import {stateType} from "../store/CalculatorReducer";
-import {clearResultAC, countResultAC, removeLastElementAC, setValueAC} from "../store/functionsActionCreater";
+import {
+    clearResultAC,
+    countResultAC,
+    makePositiveNegativeNumbersAC,
+    removeLastElementAC,
+    setValueAC
+} from "../store/functionsActionCreater";
 
 
 
@@ -33,6 +39,10 @@ export const Calculator = () => {
             dispatch(removeLastElementAC())
         }
 
+        const makeNegOrPostNumbers = () => {
+            dispatch(makePositiveNegativeNumbersAC())
+        }
+
         return (
         <div className={style.wrapper}>
             <div className={style.display}>
@@ -59,6 +69,7 @@ export const Calculator = () => {
                 <Button callback={getResult}>=</Button>
                 <Button callback={clearResult}>С</Button>
                 <Button callback={removeLastElement}> --c </Button>
+                <Button callback={makeNegOrPostNumbers}>+/-</Button>
             </div>
         </div>
         </div>

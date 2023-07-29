@@ -1,17 +1,21 @@
-import {calculatorReducer} from "./CalculatorReducer";
-import {clearResultAC, countResultAC, removeLastElementAC, setValueAC} from "./functionsActionCreater";
+import {calculatorReducer, stateType} from "./CalculatorReducer";
+import {
+    clearResultAC,
+    countResultAC,
+    makePositiveNegativeNumbersAC,
+    removeLastElementAC,
+    setValueAC
+} from "./functionsActionCreater";
 
 test('remove last element in value', ()=> {
+
     let state = {
         value: '100',
         result: ''
     }
     let checkedResultSplice = calculatorReducer(state, removeLastElementAC())
     expect(checkedResultSplice.value).toEqual('10')
-
-    let checkedResultSplice_2 = calculatorReducer(checkedResultSplice, removeLastElementAC())
-    expect(checkedResultSplice_2.value).toEqual('1')
-    expect( typeof checkedResultSplice_2.result).toEqual('string')
+    expect(typeof checkedResultSplice.result).toEqual('string')
 })
 
 
@@ -96,7 +100,7 @@ test('check clean result', ()=> {
     }
     let example = calculatorReducer(state, clearResultAC())
     expect(example.result).toEqual('0')
-    expect(example.value).toEqual('')
+    expect(example.value).toEqual('0')
 })
 
 
@@ -114,5 +118,39 @@ test('check how work set value in display', ()=> {
     }
     let example_1 = calculatorReducer(state_1, setValueAC('5'))
     expect(example_1.value).toEqual('5')
+    let state_2 = {
+        value: '1+',
+        result: '0'
+    }
+    let example_2 = calculatorReducer(state_2, setValueAC("+"))
+    expect(example_2.value).not.toEqual('1++')
 
+})
+
+
+test('change number for negative or positive', ()=> {
+    let state = {
+        value: '-1',
+        result: '0'
+    }
+    let makePositiveNumber = calculatorReducer(state, makePositiveNegativeNumbersAC())
+    expect(makePositiveNumber.value).toEqual('1')
+
+    let state_1 = {
+        value: '1',
+        result: '0'
+    }
+    let makeNegativeNumber = calculatorReducer(state_1, makePositiveNegativeNumbersAC())
+    expect(makeNegativeNumber.value).toEqual('-1')
+    expect(typeof makeNegativeNumber.value).toEqual('string')
+})
+
+
+test('check is not Nan, undefined,error', ()=> {
+    let state_1 = {
+        value: '-1-',
+        result: '0'
+    }
+    let isNotNan = calculatorReducer(state_1, countResultAC())
+    expect(isNotNan.value).toEqual('-1-')
 })

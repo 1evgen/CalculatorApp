@@ -1,7 +1,7 @@
 import {
     clearLastCharacterActionType,
     clearResultActionType,
-    countResultActionType,
+    countResultActionType, makePositiveNegativeNumbersAT,
     setValueActionType
 } from "./CalculatorReducer";
 
@@ -17,4 +17,7 @@ export  const clearResultAC = (): clearResultActionType => {
 }
 export const removeLastElementAC = (): clearLastCharacterActionType  => {
     return {type: "REMOVE-LAST-CHARACTER"}
+}
+export const makePositiveNegativeNumbersAC = (): makePositiveNegativeNumbersAT => {
+    return {type:"MAKE-POSITIVE-NEGATIVE-NUMBERS"}
 }
