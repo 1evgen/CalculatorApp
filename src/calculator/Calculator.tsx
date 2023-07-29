@@ -20,7 +20,6 @@ export const Calculator = () => {
         let outputResult = inputNumberinDisplay.result
         let dispatch = useDispatch()
 
-
         const setCharacter = useCallback(
             (value: string) => {
                     dispatch(setValueAC(value));
@@ -43,11 +42,23 @@ export const Calculator = () => {
             dispatch(makePositiveNegativeNumbersAC())
         }
 
-        return (
+    let styleForButtonEqual = {
+            backgroundColor: 'red'
+
+        }
+    let styleForButtonPlus = {
+            backgroundColor: '#32dcdc',
+    }
+    let styleForButtonClear = {
+        backgroundColor: '#32dcdc',
+        width: "245px"
+    }
+
+    return (
         <div className={style.wrapper}>
             <div className={style.display}>
                 <div className={style.placeForInput}>{outputNumbersInDisplay}</div>
-                <div className={style.placeForResult}>{outputResult}</div>
+                <div className={style.placeForResult}><div>{outputResult}</div></div>
             </div>
             <div className={style.calculatorBody}>
             <div className={`${style.button}`}>
@@ -65,9 +76,17 @@ export const Calculator = () => {
                 <Button callback={()=>setCharacter('-')}>-</Button>
                 <Button callback={()=>setCharacter('0')}>0</Button>
                 <Button callback={()=>setCharacter('.')}>.</Button>
-                <Button callback={()=>setCharacter('+')}>+</Button>
-                <Button callback={getResult}>=</Button>
-                <Button callback={clearResult}>С</Button>
+                <Button styleForButton={styleForButtonEqual}
+                        callback={getResult}
+                        xType={'equal'}>
+                    =
+                </Button>
+                <Button styleForButton={styleForButtonPlus}
+                        callback={()=>setCharacter('+')}
+                        xType={'plus'}>
+                    +
+                </Button>
+                <Button styleForButton={styleForButtonClear} xType={'clear'} callback={clearResult}>С</Button>
                 <Button callback={removeLastElement}> --c </Button>
                 <Button callback={makeNegOrPostNumbers}>+/-</Button>
             </div>
