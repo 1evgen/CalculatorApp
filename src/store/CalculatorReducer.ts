@@ -30,7 +30,9 @@ clearResultActionType | clearLastCharacterActionType | makePositiveNegativeNumbe
 
 export const calculatorReducer = (state = initialState, actions: ActionType):stateType => {
         switch(actions.type){
+
             case "SET-VALUE": {
+                if (state.value.length >= 56) {return state}
                 if (state.value === '0' || state.value === "You can not divide on null") {
                     if (!Number.isNaN(+actions.value)) {
                         return { ...state, value: actions.value };

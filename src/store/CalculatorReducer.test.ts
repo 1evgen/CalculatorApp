@@ -154,3 +154,27 @@ test('check is not Nan, undefined,error', ()=> {
     let isNotNan = calculatorReducer(state_1, countResultAC())
     expect(isNotNan.value).toEqual('-1-')
 })
+
+
+test('check max character in input', ()=> {
+    let maxNumber = '1'
+    for(let i = 1; i <= 32; i++){
+        maxNumber += i;
+    }
+    let state = {
+        value: maxNumber,
+        result: '0'
+    }
+
+    let state_1 = {
+        value: "1 + ",
+        result: '0'
+    }
+
+    let result = calculatorReducer(state, setValueAC('1'))
+    let result_2 = calculatorReducer(state_1, setValueAC('2'))
+    expect(result.value).toEqual(state.value)
+    expect(result_2.value).toEqual('1 + 2')
+})
+
+
