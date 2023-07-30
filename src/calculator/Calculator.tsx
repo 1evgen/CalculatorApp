@@ -12,12 +12,10 @@ import {
     setValueAC
 } from "../store/functionsActionCreater";
 
-
-
 export const Calculator = () => {
-        const inputNumberinDisplay = useSelector<AppRootStateType, stateType>(state => state.calculator)
-        let outputNumbersInDisplay = inputNumberinDisplay.value
-        let outputResult = inputNumberinDisplay.result
+        const inputNumberInDisplay = useSelector<AppRootStateType, stateType>(state => state.calculator)
+        let outputNumbersInDisplay = inputNumberInDisplay.value
+        let outputResult = inputNumberInDisplay.result
         let dispatch = useDispatch()
 
         const setCharacter = useCallback(
@@ -34,31 +32,32 @@ export const Calculator = () => {
             dispatch(clearResultAC())
         }, [dispatch])
 
-        const removeLastElement = ()=> {
-            dispatch(removeLastElementAC())
-        }
+        const removeLastElement = useCallback( ()=> {
+            dispatch(removeLastElementAC())},[dispatch])
 
-        const makeNegOrPostNumbers = () => {
-            dispatch(makePositiveNegativeNumbersAC())
-        }
+        const makeNegOrPostNumbers =useCallback( () => {
+            dispatch(makePositiveNegativeNumbersAC())},[dispatch])
+
 
     let styleForButtonEqual = {
-            backgroundColor: 'red'
+            backgroundColor: ''
 
         }
     let styleForButtonPlus = {
-            backgroundColor: '#32dcdc',
+            backgroundColor: '',
     }
     let styleForButtonClear = {
-        backgroundColor: '#32dcdc',
+        backgroundColor: '',
         width: "245px"
     }
 
     return (
         <div className={style.wrapper}>
             <div className={style.display}>
+                <div className={style.windowCalculator}>
                 <div className={style.placeForInput}>{outputNumbersInDisplay}</div>
-                <div className={style.placeForResult}><div>{outputResult}</div></div>
+                <div className={style.placeForResult}>{outputResult}</div>
+                </div>
             </div>
             <div className={style.calculatorBody}>
             <div className={`${style.button}`}>
@@ -86,7 +85,9 @@ export const Calculator = () => {
                         xType={'plus'}>
                     +
                 </Button>
-                <Button styleForButton={styleForButtonClear} xType={'clear'} callback={clearResult}>С</Button>
+                <Button styleForButton={styleForButtonClear}
+                        xType={'clear'}
+                        callback={clearResult}>С</Button>
                 <Button callback={removeLastElement}> --c </Button>
                 <Button callback={makeNegOrPostNumbers}>+/-</Button>
             </div>

@@ -5,35 +5,50 @@
     margin-top: 70px;
 }
 .calculatorBody {
-    border: 2px solid black;
-    width: 500px;
+    border: 2px solid #000000;
+    width: 510px;
     height: 300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #f4f5ff;
+    /*background-color: #f4f5ff;*/
+    background-color: #121312;
     padding: 5px;
 }
 .display{
     border: 2px solid black;
     width: 500px;
     height: 120px;
-    padding: 5px;
-    background-color: #374949;
-
+    background-color: #121312;
+    padding: 10px;
+}
+.windowCalculator {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 30px;
+    border: 1px solid #f4f5ff;
+    background-color: #374949;
 
+
+}
+
+.windowCalculator .placeForInput{
+        margin-right: 15px;
+
+}
+
+.windowCalculator .placeForResult{
+    margin-right: 15px;
 }
 
 .placeForInput{
      max-height: content-box;
      font-size: 32px;
      margin-right: 5px;
-    color: #fc4b05;
+     color: #fc4b05;
  }
 
 .placeForResult{
@@ -41,34 +56,39 @@
     margin-right: 5px;
     color: #fc4b05;
 }
+
 .button{
     display: flex;
     flex-wrap: wrap; /* Добавлено свойство flex-wrap */
     flex-direction: row;
     justify-content: space-evenly; /* Чтобы кнопки распределялись равномерно по контейнеру */
-}
-.button-container .buttonEqual  {
-    background-color: #32dcdc ;
-}
 
-.button-container .plus {
-    background-color: #ffd700 ;
 }
-
-.button button  {
-    border: 1px solid black;
+.button button {
+    border: 1px solid #f4f5ff;
     width: 120px;
     height: 50px;
     margin-bottom: 5px;
-    background-color: #ef9e9e;
-    color: white;
-
+    color: #f4f5ff;
+    background-color: #121312 ;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 25px;
+}
+
+.button :hover button  {
+    background-color: #dadade;
+    color: #121312;
 }
 
 
 .buttonClear{
-    background-color: #32dcdc;
+    background-color: #298bf1;
 }
+/*.button-container .buttonEqual  {*/
+/*    background-color: #32dcdc ;*/
+/*}*/
+/*.button-container .plus {*/
+/*    background-color: #ffd700 ;*/
+/*}*/
