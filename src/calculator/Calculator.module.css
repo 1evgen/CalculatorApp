@@ -6,20 +6,20 @@
 }
 .calculatorBody {
     border: 2px solid #000000;
-    width: 510px;
-    height: 300px;
+    width: 330px;
+    height: 200px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
     /*background-color: #f4f5ff;*/
     background-color: #121312;
-    padding: 5px;
+    padding: 10px;
 }
 .display{
     border: 2px solid black;
-    width: 500px;
-    height: 190px;
+    width: 330px;
+    height: 160px;
     background-color: #121312;
     padding: 10px;
 }
@@ -30,7 +30,7 @@
     align-items: flex-end;
     border: 1px solid #f4f5ff;
     background-color: #374949;
-    height: 150px;
+    height: 140px;
 }
 
 .windowCalculator .placeForInput{
@@ -44,14 +44,14 @@
 
 .placeForInput{
      max-height: content-box;
-     font-size: 32px;
+     font-size: 23px;
      margin-right: 5px;
      color: #fc4b05;
-    word-break: break-all;
+     word-break: break-all;
  }
 
 .placeForResult{
-    font-size: 32px;
+    font-size: 23px;
     margin-right: 5px;
     color: #fc4b05;
 }
@@ -63,31 +63,72 @@
     justify-content: space-evenly; /* Чтобы кнопки распределялись равномерно по контейнеру */
 
 }
-.button button {
+
+
+.default {
     border: 1px solid #f4f5ff;
-    width: 120px;
-    height: 50px;
+    min-width: 70px;
+    height: 30px;
+    color: #f4f5ff;
+    background-color: #121312 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.default:hover  {
+    background-color: #dadade;
+    color: #121312;
+}
+.clear{
+    border: 1px solid #f4f5ff;
+    min-width: 150px;
+    height: 30px;
     margin-bottom: 5px;
     color: #f4f5ff;
     background-color: #121312 ;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 18px;
 }
-
-.button :hover button  {
+.clear:hover{
     background-color: #dadade;
     color: #121312;
 }
 
-
-.buttonClear{
-    background-color: #298bf1;
+.primary {
+    border: 1px solid #f4f5ff;
+    min-width: 70px;
+    height: 30px;
+    color: #f4f5ff;
+    background-color: #2b50d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
 }
-/*.button-container .buttonEqual  {*/
-/*    background-color: #32dcdc ;*/
-/*}*/
-/*.button-container .plus {*/
-/*    background-color: #ffd700 ;*/
-/*}*/
+.primary:hover{
+    background-color: #b60f39;
+    color: #121312;
+}
+
+.secondary {
+    border: 1px solid #f4f5ff;
+    min-width: 70px;
+    height: 30px;
+    color: #f4f5ff;
+    background-color: #6e24a1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.secondary:hover{
+    background-color: #b60f39;
+    color: #121312;
+}

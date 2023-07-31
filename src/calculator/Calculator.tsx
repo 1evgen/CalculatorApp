@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import style from "./Calculator.module.css"
-import {Button} from "./Button";
+import {Button, ButtonVariant} from "./Button";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store/store";
 import {stateType} from "../store/CalculatorReducer";
@@ -38,19 +38,6 @@ export const Calculator = () => {
         const makeNegOrPostNumbers =useCallback( () => {
             dispatch(makePositiveNegativeNumbersAC())},[dispatch])
 
-
-    let styleForButtonEqual = {
-            backgroundColor: ''
-
-        }
-    let styleForButtonPlus = {
-            backgroundColor: '',
-    }
-    let styleForButtonClear = {
-        backgroundColor: '',
-        width: "245px"
-    }
-
     return (
         <div className={style.wrapper}>
             <div className={style.display}>
@@ -61,33 +48,23 @@ export const Calculator = () => {
             </div>
             <div className={style.calculatorBody}>
             <div className={`${style.button}`}>
-                <Button callback={()=>setCharacter('7')}>7</Button>
+                <Button  callback={()=>setCharacter('7')}>7</Button>
                 <Button callback={()=>setCharacter('8')}>8</Button>
                 <Button callback={()=>setCharacter('9')}>9</Button>
-                <Button callback={()=>setCharacter('/')}>/</Button>
+                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('/')}>/</Button>
                 <Button callback={()=>setCharacter('4')}>4</Button>
                 <Button callback={()=>setCharacter('5')}>5</Button>
                 <Button callback={()=>setCharacter('6')}>6</Button>
-                <Button callback={()=>setCharacter('*')}>*</Button>
+                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('*')}>*</Button>
                 <Button callback={()=>setCharacter('1')}>1</Button>
                 <Button callback={()=>setCharacter('2')}>2</Button>
                 <Button callback={()=>setCharacter('3')}>3</Button>
-                <Button callback={()=>setCharacter('-')}>-</Button>
+                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('-')}>-</Button>
                 <Button callback={()=>setCharacter('0')}>0</Button>
                 <Button callback={()=>setCharacter('.')}>.</Button>
-                <Button styleForButton={styleForButtonEqual}
-                        callback={getResult}
-                        xType={'equal'}>
-                    =
-                </Button>
-                <Button styleForButton={styleForButtonPlus}
-                        callback={()=>setCharacter('+')}
-                        xType={'plus'}>
-                    +
-                </Button>
-                <Button styleForButton={styleForButtonClear}
-                        xType={'clear'}
-                        callback={clearResult}>С</Button>
+                <Button variant={ButtonVariant.SECONDARY} callback={getResult}>=</Button>
+                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('+')}>+</Button>
+                <Button  variant={ButtonVariant.CLEAR} callback={clearResult}>С</Button>
                 <Button callback={removeLastElement}> --c </Button>
                 <Button callback={makeNegOrPostNumbers}>+/-</Button>
             </div>
