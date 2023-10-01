@@ -1,13 +1,17 @@
-body {
+html, body, .AppCalculator {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: url("../src/calculator/theme/theme.png");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+
 }
+
+/*.AppCalculator {*/
+/*  background: url("src/calculator/theme/theme.png");*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*  flex: 1; !* Это чтобы контент располагался под фоном *!*/
+/*}*/

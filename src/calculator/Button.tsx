@@ -12,7 +12,7 @@ type TypeButtonProps = {
     callback: () => void;
     children: ReactNode;
     className?: string;
-    variant? : ButtonVariant
+    variant? : ButtonVariant    
 };
 
 export const Button = ({ callback, children, variant = ButtonVariant.DEFAULT}: TypeButtonProps) => {

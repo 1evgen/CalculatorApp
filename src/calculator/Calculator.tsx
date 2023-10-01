@@ -51,20 +51,26 @@ export const Calculator = () => {
                 <Button  callback={()=>setCharacter('7')}>7</Button>
                 <Button callback={()=>setCharacter('8')}>8</Button>
                 <Button callback={()=>setCharacter('9')}>9</Button>
-                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('/')}>/</Button>
+                <Button variant={ButtonVariant.PRIMARY}
+                        callback={()=>setCharacter('/')}>/</Button>
                 <Button callback={()=>setCharacter('4')}>4</Button>
                 <Button callback={()=>setCharacter('5')}>5</Button>
                 <Button callback={()=>setCharacter('6')}>6</Button>
-                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('*')}>*</Button>
+                <Button variant={ButtonVariant.PRIMARY}
+                        callback={()=>setCharacter('*')}>*</Button>
                 <Button callback={()=>setCharacter('1')}>1</Button>
                 <Button callback={()=>setCharacter('2')}>2</Button>
                 <Button callback={()=>setCharacter('3')}>3</Button>
-                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('-')}>-</Button>
+                <Button variant={ButtonVariant.PRIMARY}
+                        callback={()=>setCharacter('-')}>-</Button>
                 <Button callback={()=>setCharacter('0')}>0</Button>
                 <Button callback={()=>setCharacter('.')}>.</Button>
-                <Button variant={ButtonVariant.SECONDARY} callback={getResult}>=</Button>
-                <Button variant={ButtonVariant.PRIMARY} callback={()=>setCharacter('+')}>+</Button>
-                <Button  variant={ButtonVariant.CLEAR} callback={clearResult}>С</Button>
+                <Button variant={ButtonVariant.SECONDARY}
+                        callback={getResult}>=</Button>
+                <Button variant={ButtonVariant.PRIMARY}
+                        callback={()=>setCharacter('+')}>+</Button>
+                <Button  variant={ButtonVariant.CLEAR}
+                         callback={clearResult}>С</Button>
                 <Button callback={removeLastElement}> --c </Button>
                 <Button callback={makeNegOrPostNumbers}>+/-</Button>
             </div>
