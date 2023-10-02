@@ -1,6 +1,6 @@
-<br>_"What the f.... are you, a programmer,_</br>
-<br>_if you didn't make a calculator!!!"_</br> 
- <br>_- A random person from Habr._</br>
+<br> _"What the f.... are you, a programmer,"_</br>
+<br> _"if you didn't make a calculator!!!"_</br> 
+ <br> - A random person from Habr - </br>
 
 <img src="habrUser.png" alt="userHabr" width="110" height="80">
 
