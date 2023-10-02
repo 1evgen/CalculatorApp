@@ -2,11 +2,13 @@
 <br>_if you didn't make a calculator!!!"_</br> 
  <br>_- A random person from Habr._</br>
 
-<img src="habr.jpeg" alt="userHabr" width="110" height="80">
+<img src="habrUser.png" alt="userHabr" width="110" height="80">
 
 
 # Calculator Project
-![Project Example](Calckcrop.gif)
+
+![Project Example](Calkcrop.gif)
+
 ## Description
 
 The "Calculator" project is an interactive calculator that can perform standard arithmetic operations such as addition, subtraction, multiplication, and division. The calculator supports input of not only integers but also decimal numbers and negative numbers. Users can easily delete one character at a time or clear the entire input. One of the unique features of this calculator is its user-friendly interface, allowing interaction through buttons without the use of an input field.
