@@ -1,3 +1,10 @@
+<br>_"What the f.... are you, a programmer,_</br>
+<br>_if you didn't make a calculator!!!"_</br> 
+ <br>_- A random person from Habr._</br>
+
+<img src="habr.jpeg" alt="userHabr" width="110" height="80">
+
+
 # Calculator Project
 
 ## Description
@@ -35,3 +42,5 @@ A situation where dividing a number by a string can lead to unexpected results w
 The project supports the input of non-integer numbers (floating-point) and negative values, requiring special attention to the processing of input data for proper handling.
 
 All these features were meticulously worked on and tested using the Jest framework to ensure reliable and stable functioning of the calculator when working with different data types.
+
+### The deployed project can be found at the following link: ...    
