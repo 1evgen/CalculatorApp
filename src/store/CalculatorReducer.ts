@@ -55,7 +55,6 @@ export const calculatorReducer = (state = initialState, actions: ActionType): st
                 if (isFinite(result)) {
                     return {...state, value: result.toString(), result: result.toString()}
                 } else if (result === isNaN(+result)) {
-                    console.log(result)
                     return {...state, value: '0'}
                 } else {
                     return {
@@ -85,7 +84,12 @@ export const calculatorReducer = (state = initialState, actions: ActionType): st
         }
         case "MAKE-POSITIVE-NEGATIVE-NUMBERS": {
             let newNumber = +state.value * -1
-            return {...state, value: newNumber.toString()}
+            if(newNumber){
+                return {...state, value: newNumber.toString()}
+            } else {
+                return  state
+            }
+
         }
         default:
             return state
