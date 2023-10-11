@@ -45,4 +45,3 @@ The project supports the input of non-integer numbers (floating-point) and negat
 
 All these features were meticulously worked on and tested using the Jest framework to ensure reliable and stable functioning of the calculator when working with different data types.
 
-### The deployed project can be found at the following link: ...    
